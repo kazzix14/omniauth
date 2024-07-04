@@ -26,7 +26,7 @@ module OmniAuth
   end
 
   class Configuration
-    include Singleton
+    # include Singleton
 
     def self.default_logger
       logger = Logger.new(STDOUT)
@@ -132,7 +132,7 @@ module OmniAuth
   end
 
   def self.config
-    Configuration.instance
+    @config ||= Configuration.new
   end
 
   def self.configure
